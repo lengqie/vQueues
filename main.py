@@ -17,7 +17,7 @@ while 1:
     # 排队取号
     if num == "1":
         # 用户手机号码
-        user_num = str(input("请输入您的手机号码："))
+        user_num = input("请输入您的手机号码：")
         user_list.append(user_num)
         a += 1
         # 用户所取号
@@ -28,7 +28,7 @@ while 1:
     # 后台叫号
     elif num == "2":
         print("当前排队序列为:{}".format(t1))
-        del_num = str(input("请叫号："))
+        del_num = input("请叫号：")
         t1.remove(del_num)
         print("请{}到1号柜台办理业务，当前排队人数为{}人。".format(del_num, len(t1)))
 
