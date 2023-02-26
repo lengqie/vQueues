@@ -1,7 +1,7 @@
 # 用户号码：所取号码
 user_list = []
 # 普通排队列表
-t1 = []
+a1 = []
 # vip用户排队列表
 v1 = []
 # 排号计数
@@ -22,15 +22,15 @@ while 1:
         a += 1
         # 用户所取号
         A_num = "A" + str(a)
-        t1.append(A_num)
-        print("您的排队号码是A{}，前面排队人数为{}人，请稍等。\n".format(a, len(t1) - 1))
+        a1.append(A_num)
+        print("您的排队号码是A{}，前面排队人数为{}人，请稍等。\n".format(a, len(a1) - 1))
 
     # 后台叫号
     elif num == "2":
-        print("当前排队序列为:{}".format(t1))
+        print("当前排队序列为:{}".format(a1))
         del_num = input("请叫号：")
-        t1.remove(del_num)
-        print("请{}到1号柜台办理业务，当前排队人数为{}人。".format(del_num, len(t1)))
+        a1.remove(del_num)
+        print("请{}到1号柜台办理业务，当前排队人数为{}人。".format(del_num, len(a1)))
 
     # 退出系统
     elif num == "3":
