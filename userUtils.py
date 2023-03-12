@@ -12,7 +12,6 @@ def is_vip(number: str) -> bool:
     return t % 2 + t // 10 % 2 == 0
 
 
-
 if __name__ == '__main__':
     print(32 % 2)
     print(32 // 10 % 2)

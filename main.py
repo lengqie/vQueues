@@ -45,7 +45,7 @@ while 1:
             a_user_list.append(index)
             temp_len = len(a_user_list)
         # 用户所取号
-        print("您的排队号码是A{}，前面排队人数为{}人，请稍等。\n".format(6, temp_len - 1))
+        print("您的排队号码是A{}，前面排队人数为{}人，请稍等。\n".format(index, temp_len - 1))
 
     # 后台叫号
     elif num == "2":
