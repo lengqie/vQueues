@@ -8,6 +8,10 @@ a_user_list = []
 v_user_list = []
 # 排号计数 （没有用户时为-1）
 index = -1
+# 普通用户计数
+a_count = 0
+# vip用户计数
+v_count = 0
 
 while 1:
     print("***欢迎使用vQueues挂号系统***")
@@ -35,22 +39,21 @@ while 1:
         # 记录用户在user list中的位置
         index += 1
 
-        # 临时长度 用来判断当前用户类型数量
-        temp_len = 0
         # 如果是vip用户
         if vip:
             v_user_list.append(index)
-            temp_len = len(v_user_list)
+            v_count += 1
+            # Vip用户输出
+            print("您的排队号码是V{}，前面排队人数为{}人，请稍等。\n".format(v_count, len(v_user_list) - 1))
         else:
             a_user_list.append(index)
-            temp_len = len(a_user_list)
-        # 用户所取号
-        print("您的排队号码是A{}，前面排队人数为{}人，请稍等。\n".format(index, temp_len - 1))
-
+            a_count += 1
+            # 普通用户输出
+            print("您的排队号码是A{}，前面排队人数为{}人，请稍等。\n".format(a_count, len(a_user_list) - 1))
     # 后台叫号
     elif num == "2":
         print("当前排队序列为:{}".format(a_user_list))
-        del_num = input("请叫号：")
+        del_num = int(input("请叫号："))
         a_user_list.remove(del_num)
         print("请{}到1号柜台办理业务，当前排队人数为{}人。".format(del_num, len(a_user_list)))
 
