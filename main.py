@@ -7,11 +7,13 @@ a_user_list = []
 # vip用户排队列表
 v_user_list = []
 # 排号计数 （没有用户时为-1）
-index = -1
+index = 0
 # 普通用户计数
 a_count = 0
 # vip用户计数
 v_count = 0
+# 操作队列
+work_user_list = ''
 
 while 1:
     print("***欢迎使用vQueues挂号系统***")
@@ -52,10 +54,20 @@ while 1:
             print("您的排队号码是A{}，前面排队人数为{}人，请稍等。\n".format(a_count, len(a_user_list) - 1))
     # 后台叫号
     elif num == "2":
-        print("当前排队序列为:{}".format(a_user_list))
+        print("当前VIP排队序列为:{}".format(v_user_list))
+        print("当前普通排队序列为:{}".format(a_user_list))
+        work_user_list = input("请选择排队序列进行操作(V:VIP队列，A:普通队列)：")
         del_num = int(input("请叫号："))
-        a_user_list.remove(del_num)
-        print("请{}到1号柜台办理业务，当前排队人数为{}人。".format(del_num, len(a_user_list)))
+        if work_user_list == "V":
+            v_user_list.remove(del_num)
+            print("请V{}到1号柜台办理业务，当前排队总人数为{}人。\n".format(del_num, len(a_user_list) + len(v_user_list)))
+        elif work_user_list == "A":
+            a_user_list.remove(del_num)
+            print("请A{}到1号柜台办理业务，当前排队总人数为{}人。\n".format(del_num, len(a_user_list) + len(v_user_list)))
+        else:
+            print("输入错误，请重新操作！\n")
+
+
 
     # 退出系统
     elif num == "3":
